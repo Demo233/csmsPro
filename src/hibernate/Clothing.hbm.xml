@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping package="com.chinasoft.domain">
+ 	<class name="Clothing" table="tb_clothing">
+		<id name="clotId" column="clot_id">
+			<generator class="native"/>
+		</id>
+		<property name="clotNum" column="clot_num" not-null="true" type="string"/>
+		<property name="clotColor" column="clot_color" not-null="true" type="string"/>
+		<property name="clotSize" column="clot_size" not-null="true" type="integer"/>
+		<property name="clotBrand" column="clot_brand" not-null="true" type="string"/>
+		<property name="clotMl" column="clot_ml" type="string"/>
+		<property name="clotLl" column="clot_ll" type="string"/>
+		<property name="clotPrimPrice" column="clot_primprice" not-null="true" type="double"/>
+		<property name="clotSellPrice" column="clot_sellprice" not-null="true" type="double"/>
+		
+		<!-- <set name="rkmxs" cascade="save-update" inverse="true">
+   		 	<key column="clot_id"/>
+   		 	<one-to-many class="Rkmx"/>
+		</set> -->
+		
+	</class>
+ </hibernate-mapping>

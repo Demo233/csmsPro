@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.ui.theme" value="simple"/>
+
+	<include file="struts/struts-user.xml"></include>
+	<include file="struts/struts-system.xml"></include>
+	<include file="struts/struts-common.xml"></include>
+	<include file="struts/struts-stock.xml"></include>
+	<include file="struts/struts-clothing.xml"></include>
+	<include file="struts/struts-ck.xml"></include>
+	<include file="struts/struts-rkmx.xml"></include>
+	<include file="struts/struts-rkd.xml"></include>
+	<include file="struts/struts-ckd.xml"></include>
+	
+	
+	<package name="myPackage" namespace="/" extends="struts-default" abstract="true">
+		<interceptors>
+			<interceptor name="loginInterceptor" class="com.chinasoft.interceptor.LoginInterceptor"/>
+			<interceptor-stack name="myDefaultStack">
+				<interceptor-ref name="loginInterceptor"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+			
+		<default-interceptor-ref name="myDefaultStack"/>
+			
+		<global-results>
+			<result name="noLogin">/WEB-INF/jsp/login.jsp</result>
+		</global-results>
+	</package>
+	
+	<package name="default" namespace="/" extends="myPackage">
+		<action name="f_*">
+			<result>/WEB-INF/jsp/{1}.jsp</result>
+		</action>
+		<action name="z_*">
+			<result>{1}.jsp</result>
+		</action>
+	</package>
+	
+	
+	
+	
+</struts>
+
+

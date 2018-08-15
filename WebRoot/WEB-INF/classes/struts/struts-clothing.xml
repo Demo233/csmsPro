@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="clothing" namespace="/clothing" extends="myPackage">
+		
+		
+		<action name="clothing_*" method="{1}" class="clothingAction">
+		
+			<result name="saveSuccess" type="redirectAction">
+				<param name="actionName">clothing_clothingList.action</param>
+			</result>
+			<result name="saveError">/error.jsp</result>
+			<result name="findAllClothingSuccess">/WEB-INF/system/clothingview.jsp</result>
+			<result name="deleteSuccess" type="redirectAction">
+				<param name="actionName">clothing_clothingList.action</param>
+			</result>
+			<result name="findError">/WEB-INF/system/clothingview.jsp</result>
+			<result name="clothingAddButSuccess">/WEB-INF/system/clothingadd.jsp</result>
+			<result name="findSuccess">/WEB-INF/system/clothingview.jsp</result>
+			<result name="list">/WEB-INF/system/clothingview.jsp</result>
+			<result name="updateBut">/WEB-INF/system/clothingupdate.jsp</result>
+			<result name="update" type="redirectAction">
+				<param name="actionName">clothing_clothingList.action</param>
+			</result>
+			<result name="updateError">/error.jsp</result>
+			<result name="input">/error.jsp</result> 
+		</action> 
+		
+	</package>
+	
+</struts>
+
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping package="com.chinasoft.domain">
+ 	<class name="Ck" table="TB_CK">
+		<id name="id" column="ID">
+			<generator class="native"/>
+		</id>
+		<property name="num" column="NUM" not-null="true" type="string" length="64"/>
+		<property name="name" column="NAME" not-null="true" type="string" length="64"/>
+		<property name="lxr" column="LXR" not-null="true" type="string" length="64"/>
+		<property name="dh" column="DH" not-null="true" type="string" length="64"/>
+		<property name="kcl" column="KCL" not-null="true" type="integer" length="64"/>
+		<property name="syskcl" column="SYSKCL" type="integer" length="64"/>
+		
+		<set name="rkmxs" cascade="save-update" inverse="true">
+			<key column="ck_id"/>
+			<one-to-many class="Rkmx"/>
+		</set>
+		
+	</class>
+ </hibernate-mapping>

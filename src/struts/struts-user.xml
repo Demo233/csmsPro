@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="user" namespace="/user" extends="myPackage">
+		<global-results>
+			<result name="saveError">/error.jsp</result>
+		</global-results>
+	
+		<action name="user_*" method="{1}" class="userAction">
+			<result name="loginSuccess">/WEB-INF/jsp/main.jsp</result>
+			<result name="loginDisable">/login.jsp</result>
+			<result name="loginError">/login.jsp</result>
+			<result name="saveSuccess" type="redirectAction">
+				<param name="actionName">user_findAllUser.action</param>
+			</result>
+			<result name="updateSuccess" type="redirectAction">
+				<param name="actionName">user_findAllUser.action</param>
+			</result>
+			<result name="deleteSuccess" type="redirectAction">
+				<param name="actionName">user_findAllUser.action</param>
+			</result>
+			<result name="findAllUserSuccess">/WEB-INF/system/user1001.jsp</result>
+			<result name="getUserByIdSuccess">/WEB-INF/system/user1002.jsp</result>
+			
+			<result name="sreachSuccess">/WEB-INF/system/user1001.jsp</result>
+			<result name="sreachError">/WEB-INF/system/user1001.jsp</result>
+			<result name="updatePwdError">/login.jsp</result>
+			<result name="pwdError">/WEB-INF/common/password.jsp</result>
+			<result name="updatePwdSuccess">/success.jsp</result>
+			<result name="logout" type="redirect">/login.jsp</result>
+			<result name="updateError">/WEB-INF/system/user1002.jsp</result>
+		</action>
+	</package>
+	
+</struts>
+
+

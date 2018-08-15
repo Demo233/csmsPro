@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="rkd" namespace="/rkd" extends="myPackage">
+		
+		<action name="rkd_*" method="{1}" class="rkdAction">
+			<result name="rkdButSuccess">/WEB-INF/stock/orderadd.jsp</result>
+			<result name="saveRkdError">/error.jsp</result>
+			<!-- <result name="saveRkdSuccess">/WEB-INF/stock/orderadd.jsp</result> -->
+			<result name="saveRkdSuccess" type="redirectAction">
+				<param name="actionName">rkd_rkdLists.action</param>
+			</result>
+			<result name="listsSuccess">/WEB-INF/stock/orderview.jsp</result>
+			<result name="listsError">/error.jsp</result>
+			<result name="findRkdSuccess">/WEB-INF/stock/orderview.jsp</result>
+			<result name="findRkdError">/error.jsp</result>
+			<result name="updateButSuccess">/WEB-INF/stock/orderupdate.jsp</result>
+		</action> 
+		
+	</package>
+	
+</struts>
+
+

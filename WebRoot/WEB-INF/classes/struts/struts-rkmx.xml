@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="rkmx" namespace="/rkmx" extends="json-default">
+		
+		<action name="rkmx_*" method="{1}" class="rkmxAction">
+			<result name="saveButSuccess">/WEB-INF/stock/rkmxadd.jsp</result>
+			<result name="getClothingByAjaxSuccess" type="json"/>
+			<result name="saveError">/WEB-INF/stock/orderadd.jsp</result>
+			<result name="saveSuccess" type="redirectAction">
+				<param name="actionName">rkmx_rkmxLists.action</param>
+			</result>
+			<result name="listSuccess">/WEB-INF/stock/rkmxview.jsp</result>
+		</action> 
+		
+	</package>
+	
+</struts>
+
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="ck" namespace="/ck" extends="myPackage">
+		
+		<action name="ck_*" method="{1}" class="ckAction">
+			<result name="addSuccess">/WEB-INF/system/repositoryadd.jsp</result>
+			<result name="saveSuccess" type="redirectAction">
+				<param name="actionName">ck_ckList.action</param>
+			</result>
+			<result name="saveError">/error.jsp</result>
+			<result name="listSuccess">/WEB-INF/system/repositoryview.jsp</result>
+			<result name="delete" type="redirectAction">
+				<param name="actionName">ck_ckList.action</param>
+			</result>
+			<result name="deleteError">/error.jsp</result>
+			<result name="updateBut">/WEB-INF/system/repositoryupdate.jsp</result>
+			<result name="update" type="redirectAction">
+				<param name="actionName">ck_ckList.action</param>
+			</result>
+			<result name="updateError">/error.jsp</result>
+		</action> 
+		
+	</package>
+	
+</struts>
+
+

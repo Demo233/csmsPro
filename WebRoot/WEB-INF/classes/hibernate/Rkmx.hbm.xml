@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.chinasoft.domain">
+    	<class name="Rkmx" table="TB_RKMX">
+    		<id name="rkmxId" column="RKMX_ID">
+    			<generator class="native"/>
+    		</id>
+    		 <property name="rkmxNum" column="rkmx_NUM" type="string" length="64"/>
+    		 <property name="count" column="COUNT" type="integer" length="64"/>
+    		 
+    		 <!-- 多个明细对应一个入库单 -->
+    		 <many-to-one name="rkd" column="rkd_id" class="Rkd"/>
+    		 
+    		 <!-- 多个明细对应一个仓库 -->
+    		 <many-to-one name="ck" column="ck_id" class="Ck"/>
+    		 
+    		 <!-- <many-to-one name="clothing" column="clot_id" class="Clothing"/> -->
+    		 
+    	</class>
+    </hibernate-mapping>

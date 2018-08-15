@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="ckd" namespace="/ckd" extends="myPackage">
+		
+		<action name="ckd_*" method="{1}" class="ckdAction">
+			<result name="butSuccess">/WEB-INF/stock/ckdadd.jsp</result>
+			<result name="saveSuccess" type="redirectAction">
+				<param name="actionName">ckd_ckdLists.action</param>
+			</result>
+			<result name="listSuccess">/WEB-INF/stock/ckdview.jsp</result>
+		</action> 
+		
+	</package>
+	
+</struts>
+
+

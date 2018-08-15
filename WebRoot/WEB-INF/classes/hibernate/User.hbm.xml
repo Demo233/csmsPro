@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.chinasoft.domain">
+	<class name="User" table="tb_users">
+		<id name="id" column="ID">
+			<generator class="native"/>
+		</id>
+		<property name="userLogin" column="USERLOGIN" not-null="true"/>
+		<property name="userName" column="USERNAME"></property>
+		<property name="userPwd" column="USERPWD" not-null="true"></property>
+		<property name="note" column="NOTE"></property>
+		<property name="flag" column="FLAG" type="integer" not-null="true"></property>
+	</class>
+</hibernate-mapping>
